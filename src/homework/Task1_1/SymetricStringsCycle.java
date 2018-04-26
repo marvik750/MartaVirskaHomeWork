@@ -11,7 +11,9 @@ public class SymetricStringsCycle {
         String stringToCheck = scanner.next();
 
         char[] arrayToCheck = stringToCheck.toCharArray();
-        if (isStringLengthEven(stringToCheck) == true) {
+        // salīdzināšana ar true nav nepieciešama, jo isStringLengthEven atgriež boolean
+//        if (isStringLengthEven(stringToCheck) == true) {
+        if (isStringLengthEven(stringToCheck)) {
             evenCompare(arrayToCheck);
         } else {
             oddCompare(arrayToCheck);
@@ -19,10 +21,12 @@ public class SymetricStringsCycle {
 
     }
 
+//  Ar ko atšķirās oddCompare no evenCompare ???
+//  Manuprāt viena ir lieka
     public static void evenCompare(char[] array) {
         int i = 0;
-        int j = array.length-1;
-        boolean isSymetric=true;
+        int j = array.length - 1;
+        boolean isSymetric = true; //typo
 
         while (i <= array.length / 2) {
             if (array[i] != array[j]) {
@@ -38,8 +42,8 @@ public class SymetricStringsCycle {
 
     public static void oddCompare(char[] array) {
         int i = 0;
-        int j = array.length-1;
-        boolean isSymetric=true;
+        int j = array.length - 1;
+        boolean isSymetric = true;  // typo
 
         while (i < array.length / 2) {
             if (array[i] != array[j]) {
@@ -53,14 +57,16 @@ public class SymetricStringsCycle {
         result(isSymetric);
     }
 
-    public static void result (boolean check){
-        if( check==true){
-            System.out.println("ir simetriska");}
-        else {System.out.println("nav simetriska");}
+    public static void result(boolean check) {
+//        if( check==true){
+//            System.out.println("ir simetriska");}
+//        else {System.out.println("nav simetriska");}
+        System.out.println(check ? "ir simetriska" : "nav simetriska");
 
     }
 
     public static boolean isStringLengthEven(String str) {
+        // tas pats labak kodolīgāk
         if (str.length() % 2 == 0) {
             return true;
         } else {

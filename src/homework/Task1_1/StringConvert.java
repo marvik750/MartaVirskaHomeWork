@@ -2,6 +2,7 @@ package homework.Task1_1;
 
 import java.util.Scanner;
 
+//OK
 public class StringConvert {
 
     public static void main(String[] args) {
