@@ -13,7 +13,7 @@ public class StringConcatenationTime {
         System.out.println("ievadiet otro simbolu virkni");
         String secondString = scanner.next();
 
-        firstTask(firstString, secondString);
+        firstTask(firstString, secondString); //slikt metodes nosaukums - labāk stringConcatenation būtu
         timeWithConcatenation(firstString, secondString, repeatTimes);
         timeWithStringBuffer(firstString, secondString, repeatTimes);
         timeWithStringBuilder(firstString, secondString, repeatTimes);
@@ -28,11 +28,17 @@ public class StringConcatenationTime {
     public static void timeWithConcatenation(String firstString, String secondString, int repeatTimes) {
         long startTime = System.nanoTime();
         for (int i = 1; i < repeatTimes; i++) {
-            String newString = firstString.concat(secondString);
+//            String newString = firstString.concat(secondString);  // neizmantots mainīgais
+            firstString.concat(secondString);
         }
-        long endTime = System.nanoTime();
-        long concatenationTime = endTime - startTime;
-        System.out.println("Savienošanas laiks, izmantojot vienkāršu konkatenāciju: " + concatenationTime);
+//        long endTime = System.nanoTime();  // nav nepieciešams šis mainīgais
+//        long concatenationTime = endTime - startTime;
+        System.out.println("Savienošanas laiks, izmantojot vienkāršu konkatenāciju: "
+                                   + calculateUsedTime(startTime, System.nanoTime()));
+    }
+
+    private static long calculateUsedTime(long startTime, long endTime) {
+        return endTime - startTime;
     }
 
     public static void timeWithStringBuffer(String firstString, String secondString, int repeatTimes) {
