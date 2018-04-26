@@ -7,17 +7,15 @@ public class StringConvert {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("ievadiet skaitļu virkni virkni");
+        System.out.println("ievadiet skaitļu virkni");
         String numberString = scanner.nextLine();
-        //String reg = "jdkkasfdf afsdcdxojsdafc sdxsdx";
+        String[] stringParts = numberString.split("\\s+");
+        double sum = 0;
 
+        for (int i = 0; i < stringParts.length; i++) {
+            sum = (sum + Double.parseDouble(stringParts[i]));
+        }
 
-        String [] stringParts = numberString.split("\\s+");
-        //String [] stringParts = StringUtils.split (numberString);
-
-        System.out.println(stringParts.length);
-        System.out.println(stringParts[1]);
-        System.out.println(numberString);
-       // System.out.println(stringParts[2]);
+        System.out.println(sum);
     }
 }
